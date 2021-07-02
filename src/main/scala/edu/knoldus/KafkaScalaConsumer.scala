@@ -25,7 +25,7 @@ object KafkaScalaConsumer extends App {
   /**
    * Deserializer class for value that implements the Deserializer interface.
    */
-  props.put("value.deserializer", classOf[CustomDeserializer])
+  props.put("value.deserializer", classOf[MyDeserializer])
 
   /**
    * A unique string that identifies the consumer group this consumer belongs to.
