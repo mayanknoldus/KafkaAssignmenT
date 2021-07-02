@@ -6,10 +6,6 @@ scalaVersion := "2.13.6"
 
 libraryDependencies += "org.apache.kafka" % "kafka-clients" % "0.11.0.0"
 
-//libraryDependencies += "org.scalastuff" %% "json-parser" % "2.0.2"
+libraryDependencies += "com.fasterxml.jackson.core" % "jackson-databind" % "2.12.3"
 
-// https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
-//libraryDependencies += "com.googlecode.json-simple" % "json-simple" % "1.1"
-
-libraryDependencies += "org.scala-lang" % "scala-parser-combinators" % "2.11.0-M4"
-//Thanks for using https://jar-download.com
+libraryDependencies += "com.fasterxml.jackson.module" % "jackson-module-scala_2.13" % "2.10.1"
