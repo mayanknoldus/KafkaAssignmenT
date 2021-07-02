@@ -31,7 +31,7 @@ object KafkaScalaProducer extends App {
    * value.serializer
    * Serializer class for value that implements the Serializer interface.
    */
-  props.put("value.serializer", classOf[CustomSerializer])
+  props.put("value.serializer", classOf[MySerializer])
 
   /**
    * @define acks
