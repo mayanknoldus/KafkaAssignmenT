@@ -2,8 +2,6 @@ package edu.knoldus
 
 import java.util.Properties
 
-import scala.util.parsing.json._
-
 import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord}
 
 object KafkaScalaProducer extends App {
@@ -79,16 +77,6 @@ object KafkaScalaProducer extends App {
   props.put("buffer.memory", "33554432")
 
 
-  val User = new UserMessage {
-
-    override var id: Int = 1
-    override var name: String = "May"
-    override var age: Int = 22
-    override var course: String = "Eng"
-
-  }
-
-
   /**
    * A producer is instantiated by providing the configuration.
    */
@@ -101,19 +89,15 @@ object KafkaScalaProducer extends App {
 
   println(s"Sending Records in Kafka Topic [$topic]")
 
+  val name = "Mayank"
+  val age = "22"
+  val course = "DevOps"
+
   for (i <- 1 to 50) {
-    /**
-     * Creates a record to be sent to a specified topic and partition
-     */
-    val record: ProducerRecord[String, UserMessage] = new ProducerRecord(topic, i.toString, User)
+    val record = new ProducerRecord[String, UserMessage](topic, s"i", UserMessage.apply(i, s"$name", s"$age", s"$course"))
     println(s"$record")
     producer.send(record)
   }
 
-  /**
-   * Close this producer. This method blocks until all previously sent requests complete.
-   */
   producer.close()
-
 }
-
